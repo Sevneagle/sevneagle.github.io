@@ -30,6 +30,7 @@ import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
 import { remarkFixGithubAdmonitions } from "./src/plugins/remark-fix-github-admonitions.js";
 import { remarkMermaid } from "./src/plugins/remark-mermaid.js";
 
+
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://patchouli.group',
@@ -40,7 +41,7 @@ export default defineConfig({
 
 	integrations: [
 		umami({
-			shareUrl: false,
+			shareUrl: "https://cloud.umami.is/analytics/us/share/u56H6SDaF9gzZgEq?path=eq.%2Fdevices%2F",
 		}),
 		swup({
 			theme: false,
