@@ -39,8 +39,8 @@ permalink: "一些介绍"
   视频寄了,也可能是网络或浏览器问题
 </video>  
 推荐找到安装目录设置以管理员身份运行。
-推荐利用SSH登录远程主机实现绑定github:在D盘新建文件夹Blogtest，在Blogtest中右键打开Git Bash  
-输入
+推荐利用SSH登录远程主机实现绑定github:在D盘新建文件夹Blogtest，在Blogtest中右键打开Git Bash输入
+
 ```bash
 ssh
 ```
@@ -60,6 +60,7 @@ cat id_rsa.pub
   视频寄了,也可能是网络或浏览器问题
 </video>  
 进入Github主页，点击头像→Settings→<a href="https://github.com/settings/keys" target="_blank" rel="noopener noreferrer">SSH and GPG keys</a>(外部链接)→右上New SSH key，将复制的公钥id_rsa.pub内容粘贴到key内，点击Add SSH key。回到Git Bash输入
+
 ```bash
 ssh -T git@github.com
 ```
@@ -89,42 +90,49 @@ npm -v
 
 安装完成后,在cmd或Git Bash中输入
 ```bash
-npm install -g pnpm //安装pnpm
-pnpm -v             //验证是否安装成功，显示版本号
+npm install -g pnpm #安装pnpm
+pnpm -v             #验证是否安装成功，显示版本号
 ```
 - [x] Node.js >= 20✅
 - [x] pnpm >= 9✅
 - [x] Git✅  
 
-#### 🍚本地部署(两种方法,注意复制粘贴快捷键)  
-- 克隆项目  
-    - 法一:简单!只需网络配置正确以在D盘新建文件夹Blogtest为例D:\Blogtest处右键打开Git Bash,输入  
+#### 🍚本地部署(时效性:版本问题可能与自身教程不符,如缺少config.ts等,此时应访问<a href="https://github.com/LyraVoid/Mizuki/releases" target="_blank" rel="noopener noreferrer">Mizuki/releases</a>,只下载Mizuki.zip文件)
+
+- 克隆项目(两种方法,注意复制粘贴快捷键)  
+    - 法一:简单!只需网络配置正确以在D盘新建文件夹Blogtest为例D:\Blogtest处右键打开Git Bash,输入
+
     ```bash
-    Git clone https://github.com/matsuzaka-yuki/mizuki.git  //采用https协议克隆mizuki项目
-    cd Mizuki   //移至Mizuki文件夹,Git Bash左上角地址变动。
-    ```  
+    Git clone https://github.com/matsuzaka-yuki/mizuki.git  #采用https协议克隆mizuki项目
+    cd Mizuki   #移至Mizuki文件夹,Git Bash左上角地址变动。
+    ```
+
     来克隆到本地，可能会报fatal，大概率为网络问题或代理配置错误(请严肃学习科学上网)      
     可参考链接<a href="https://blog.csdn.net/qq_43546721/article/details/139506583" target="_blank" rel="noopener noreferrer">CSDN-fatal解决</a>(点击可访问外部链接)  
     随后在D:\Blogtest\Mizuki处右键打开Git Bash或参考上面的代码直接移至Mizuki文件夹  
     - 法二:较复杂!但与先前ssh配置相关联,还可以了解main与master的'爱恨情仇',输入  
-    ```bash
-    git init    //初始化新的Git仓库,具体表项为生成隐藏.git文件夹
-    git branch -m main  //修改当前分支为main分支
-    git remote add origin git@github.com:matsuzaka-yuki/mizuki.git   //添加远程仓库
-    git clone git@github.com:matsuzaka-yuki/mizuki.git  //采用ssh协议克隆mizuki项目
-    cd Mizuki   //移至Mizuki文件夹,Git Bash左上角地址变动。
+    ```bash 
+    git init    #初始化新的Git仓库,具体表项为生成隐藏.git文件夹
+    git branch -m main  #修改当前分支为main分支
+    git remote add origin git@github.com:matsuzaka-yuki/mizuki.git   #添加远程仓库
+    git clone git@github.com:matsuzaka-yuki/mizuki.git  #采用ssh协议克隆mizuki项目
+    cd Mizuki   #移至Mizuki文件夹,Git Bash左上角地址变动。
     ```  
     其中Git历史上默认使用 master 作为主分支名称,2020年后GitHub,GitLab等平台改为默认使用main,但Git本身配置是可定制的;其中origin是对于远程仓库的一个命名,也可以为origin2,origintest等。可输入`git remote -v`查看你的配置  
     随后在D:\Blogtest\Mizuki处右键打开Git Bash或参考上面的代码直接移至Mizuki文件夹
 - 本地部署(初始启动较慢且可能会有警告)  
 确保是对Mizuki文件夹进行git,输入
 ```bash
-cd Mizuki   //确保处于mizuki文件夹
-pnpm install    //安装项目依赖
-pnpm dev    //启动开发服务器
+cd Mizuki   #确保处于mizuki文件夹
+pnpm install    #安装项目依赖
+pnpm dev    #启动开发服务器
 ```
 启动完成后,可以在浏览器中访问http://localhost:4321 查看自己的博客。(运行界面会有提示)  
 此时网站为本地静态部署，可以在D:\Blogtest\mizuki\src中的config.ts等文件修改布局。可以用记事本等文件打开进行修改，尤其推荐使用Vscode(修改请具体参考<a href="https://docs.mizuki.mysqil.com/Basic-Layout/site-config/" target="_blank" rel="noopener noreferrer">Mizuki配置</a>)
 
 ## 🌽结语
 感谢阅读!至此已完成网站的本地部署与修改，部署到Github Pages与域名相关等步骤将在详细教程中涉及。  
+
+<!--
+git branch -m main  #修改当前分支为main分支
+-->
