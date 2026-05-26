@@ -16,7 +16,6 @@ permalink: "00测试例子"
 ---
 
 <video controls width="100%" poster="/videos/contents0/cover.png">
-  <source src="/videos/contents0/manba.mp4" type="video/mp4">
+  <source src="/videos/contents0/geimu.mp4" type="video/mp4">
 </video>
-
 

@@ -63,7 +63,8 @@ cat id_rsa.pub
 ```bash
 ssh -T git@github.com
 ```
-进行验证，一般会提示是否确认，这里输入yes后会返回”Hi 你的github名字!......” 
+进行验证，一般会提示是否确认，这里输入yes后会返回”Hi 你的github名字!......”  
+
 ### 🐉Mizuki本地部署
 我用的主题是<a href="https://docs.mizuki.mysqil.com/guide/get-started/" target="_blank" rel="noopener noreferrer">Mizuki</a>(点击可访问外部链接)  
 #### ⚪环境依赖  
