@@ -1,8 +1,8 @@
 ---
-title: 二、线性代数
+title: 三、线性代数Chap.1
 published: 2026-04-02
 pinned: false
-description: 这篇文章记录我的考研线代复习
+description: 这篇文章开始记录我的考研线代复习
 tags: [maths]
 category: maths
 licenseName: "CC BY-NC-SA 4.0"
@@ -10,7 +10,7 @@ author: Sevneagle
 //sourceLink: "https://github.com/emn178/markdown"
 draft: false
 date: 2026-04-02
-image: "./images/cover.jpg"
+image: "./images/cover1.jpg"
 pubDate: 2026-04-02
 permalink: "一些分享"
 ---
