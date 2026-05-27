@@ -59,7 +59,7 @@ cat id_rsa.pub
   <source src="/videos/contents1/ssh.mp4" type="video/mp4">
   视频寄了,也可能是网络或浏览器问题
 </video>  
-进入Github主页，点击头像→Settings→<a href="https://github.com/settings/keys" target="_blank" rel="noopener noreferrer">SSH and GPG keys</a>(外部链接)→右上New SSH key，将复制的公钥id_rsa.pub内容粘贴到key内，点击Add SSH key。回到Git Bash输入
+进入Github主页，点击头像--→Settings--→<a href="https://github.com/settings/keys" target="_blank" rel="noopener noreferrer">SSH and GPG keys</a>(外部链接)--→右上New SSH key，将复制的公钥id_rsa.pub内容粘贴到key内，点击Add SSH key。回到Git Bash输入
 
 ```bash
 ssh -T git@github.com
@@ -76,17 +76,42 @@ ssh -T git@github.com
 使用浏览器如edge、chrome打开<a href="https://nodejs.org/zh-cn/download" target="_blank" rel="noopener noreferrer">Node.js官网</a>&emsp;<!--这个是空格代码-->
 后边是可供下载的<a href="https://nodejs.org/dist/v24.14.0/node-v24.14.0-x64.msi" target="_blank" rel="noopener noreferrer">Node.js安装包</a>(可能过时)  
 选择合适的系统与版本。我选择的是Windows x64,且使用Docker和npm的Node.js(v24.14.0LTS)  
-双击node-v24.14.0-x64.msi(可能与我版本不同)文件运行安装，默认安装即可，可以选择修改安装位置。![图片寄了,也可能是网络问题](./images/nodejs.png)  
+双击node-v24.14.0-x64.msi(可能与我版本不同)文件运行安装，默认安装即可,也可以选择修改安装位置。![图片寄了,也可能是网络问题](./images/nodejs.png)  
 
 <a href="https://blog.csdn.net/antma/article/details/86104068" target="_blank" rel="noopener noreferrer">CSDN-Node.js详细安装教程</a>(点击可访问外部链接)该链接中有详细的安装教程可供参考  
-推荐参考csdn链接配置好npm在安装全局模块时路径和缓存cache的路径(需配置系统环境)，部分模块默认会装在C盘某路径中，容易占用C盘空间，简易教程暂不赘述。
+推荐参考csdn链接配置好npm在安装全局模块时路径和缓存cache的路径(需配置系统环境)，部分模块默认会装在C盘某路径中，容易占用C盘空间,以下是一些说明:  
+先在nodejs文件夹中新建两个空文件夹node_cache、node_global,如下图:  
 
+![图片寄了,也可能是网络问题](./images/nodejs2.png)
+
+```bash
+#同时按Win+R
+cmd    #打开命令提示符终端
+# 以你自己的路径为准（示例为 C 盘 为什么不试试D盘喵）
+npm config set prefix "C:\Program Files\nodejs\node_global"
+npm config set cache "C:\Program Files\nodejs\node_cache"
+```
+
+设置环境变量:系统-->打开控制面板-->系统-->高级系统设置-->环境变量或直接在cmd输入:
+```bash
+#在cmd中输入
+sysdm.cpl #进入系统属性,然后点击第三个高级,然后点击最下方的环境变量
+```
+进入系统属性,然后点击第三个高级,然后点击最下方的环境变量  
+![图片寄了,也可能是网络问题](./images/path0.png)
+在系统变量(S)处点击新建,变量名为NODE_PATH,变量值可通过浏览目录来设置,选中nodejs中的node_modules**文件夹**即可
+![图片寄了,也可能是网络问题](./images/path1.png)
+选中用户变量Path后进行编辑,在其中新建后浏览设置,选择nodejs中的node_global,选中node_global**文件夹**即可
+![图片寄了,也可能是网络问题](./images/path2.png)
+![图片寄了,也可能是网络问题](./images/path3.png)
+
+此时已完成系统环境配置,可以在Git bash中使用更多代码了
 ```bash
 node -v
 npm -v
 ```
-安装完成后可用cmd或Git Bash检验是否成功:输入node –v 和npm -v返回版本号。 *(git中的复制粘贴不是 `Ctrl+C 和 Ctrl+V，而是 Ctrl+insert 和 Shift+insert`)*
-推荐参考csdn链接配置好npm在安装全局模块时路径和缓存cache的路径(需配置系统环境)，部分模块默认会装在C盘某路径中，容易占用C盘空间，简易教程暂不赘述。  
+可用cmd或Git Bash(使用git前需要配置好系统环境)检验是否成功:输入node –v 和npm -v返回版本号。 *(git中的复制粘贴不是 `Ctrl+C 和 Ctrl+V，而是 Ctrl+insert 和 Shift+insert`)*
+具体问题可参考csdn链接来解决,只需要保证在Git bash中能查到node和npm版本号即为成功。  
 
 安装完成后,在cmd或Git Bash中输入
 ```bash
@@ -128,7 +153,12 @@ pnpm install    #安装项目依赖
 pnpm dev    #启动开发服务器
 ```
 启动完成后,可以在浏览器中访问http://localhost:4321 查看自己的博客。(运行界面会有提示)  
-此时网站为本地静态部署，可以在D:\Blogtest\mizuki\src中的config.ts等文件修改布局。可以用记事本等文件打开进行修改，尤其推荐使用Vscode(修改请具体参考<a href="https://docs.mizuki.mysqil.com/Basic-Layout/site-config/" target="_blank" rel="noopener noreferrer">Mizuki配置</a>)
+如需关闭,可按`Ctr+c`来停止,如有提示则输入`y`确认退出  
+
+### 🦐重要提示
+如遇文件缺少config.ts等文件无法启动且无法从<a href="https://github.com/LyraVoid/Mizuki/releases" target="_blank" rel="noopener noreferrer">Mizuki/releases</a>处下载Mizuki.zip文件的情况,可直接点击<a href="https://release-assets.githubusercontent.com/github-production-release-asset/1036553277/91c1f3ff-2f27-47e3-8cee-deda5f382d8e?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-05-27T15%3A50%3A41Z&rscd=attachment%3B+filename%3DMizuki.zip&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-05-27T14%3A49%3A53Z&ske=2026-05-27T15%3A50%3A41Z&sks=b&skv=2018-11-09&sig=SFR%2Bu6UuzfbtrPdekZPqhtcnAoy9pdUPUD%2FwsQEsSLM%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc3OTg5NjQzMCwibmJmIjoxNzc5ODk0NjMwLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.myy-RYqgCA-1mVoihbftHkgsIlwWiZYgZJJbqam_vW4&response-content-disposition=attachment%3B%20filename%3DMizuki.zip&response-content-type=application%2Foctet-stream">mizuki9.0包</a>来下载,之后请解压后使用,并且需要对Mizuki进行git bash(确保你的当前muziki目录下包含许多文件,**而不是嵌套mizuki文件夹**)  
+
+此时网站为本地静态部署，可以在D:\Blogtest\mizuki\src中的config.ts等文件修改布局。可以用记事本等文件打开进行修改，尤其推荐使用Vscode(修改请具体参考<a href="https://docs.mizuki.mysqil.com/Basic-Layout/site-config/" target="_blank" rel="noopener noreferrer">Mizuki配置</a>)  
 
 ## 🌽结语
 感谢阅读!至此已完成网站的本地部署与修改，部署到Github Pages与域名相关等步骤将在详细教程中涉及。  
