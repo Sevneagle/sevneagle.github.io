@@ -68,6 +68,7 @@ ssh -T git@github.com
 
 ### 🐉Mizuki本地部署
 我用的主题是<a href="https://docs.mizuki.mysqil.com/guide/get-started/" target="_blank" rel="noopener noreferrer">Mizuki</a>(点击可访问外部链接)  
+
 #### ⚪环境依赖  
 在开始使用 Mizuki 之前，您需要确保系统满足以下要求：
 - [ ] Node.js >= 20
@@ -103,14 +104,17 @@ sysdm.cpl #进入系统属性,然后点击第三个高级,然后点击最下方�
 ![图片寄了,也可能是网络问题](./images/path1.png)
 选中用户变量Path后进行编辑,在其中新建后浏览设置,选择nodejs中的node_global,选中node_global**文件夹**即可
 ![图片寄了,也可能是网络问题](./images/path2.png)
-![图片寄了,也可能是网络问题](./images/path3.png)
+![图片寄了,也可能是网络问题](./images/path3.png)  
 
-此时已完成系统环境配置,可以在Git bash中使用更多代码了
+此时已完成环境配置,可以在Git bash中使用更多代码了,在项目拷贝前,默认都在Blogtest中进行Git bash
+
+![图片寄了,也可能是网络问题](./images/git.png)
+
+可用cmd或Git Bash(使用git前需要配置好系统环境)检验是否成功:输入node –v 和npm -v返回版本号。 *(git中的复制粘贴不是 `Ctrl+C 和 Ctrl+V，而是 Ctrl+insert 和 Shift+insert`)*
 ```bash
 node -v
 npm -v
 ```
-可用cmd或Git Bash(使用git前需要配置好系统环境)检验是否成功:输入node –v 和npm -v返回版本号。 *(git中的复制粘贴不是 `Ctrl+C 和 Ctrl+V，而是 Ctrl+insert 和 Shift+insert`)*
 具体问题可参考csdn链接来解决,只需要保证在Git bash中能查到node和npm版本号即为成功。  
 
 安装完成后,在cmd或Git Bash中输入
