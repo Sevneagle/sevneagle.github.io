@@ -122,6 +122,47 @@ pnpm -v             #验证是否安装成功，显示版本号
 - [x] pnpm >= 9✅
 - [x] Git✅  
 
+<details>
+  <summary style="
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #b91c1c;
+  background: #fef2f2;
+  padding: 8px 12px;
+  border-left: 6px solid #ef4444;
+  border-radius: 8px;
+  margin-bottom: 4px;
+">
+  ⚠️ pnpm指令会在你使用的盘符根目录下生成 .pnpm-store 文件，如不介意可不用展开
+</summary>
+  <div style="margin-top: 12px; padding: 8px; border-left: 3px solid #3b82f6; background: rgba(59,130,246,0.05);">
+  感谢展开!这说明你对文件管理已有更高要求:为避免在根目录自动生成.pnpm-store(可能隐藏)我们需要修改store默认位置
+
+  ![图片寄了,也可能是网络问题](./images/pnpm0.png)
+  
+  先在D盘Blogtest下新建名为pnpm-store的空文件夹(以你想放的位置为主)
+  ![图片寄了,也可能是网络问题](./images/pnpm1.png)
+
+  接着在Blogtest处git bash运行代码:
+  ```bash
+  # 把路径换成你自己的,比如D:\Blogtest\pnpm-store
+  pnpm config set store-dir "D:\Blogtest\pnpm-store"
+  ```
+  ***此时盘符根目录下可能生成.pnpm-store,但是这不影响,因为只要运行pnpm相关指令就会生成***
+  接着运行代码:
+  ```bash
+  pnpm config list  #查看 pnpm 的所有配置项
+  pnpm store path   #查看 pnpm 依赖缓存文件夹的真实路径
+  ```
+
+  ![图片寄了,也可能是网络问题](./images/pnpm2.png)
+  确保你的路径已经配置正确后,可以删除根目录下的.pnpm-store文件夹,然后运行`pnpm -v`来查看是否还会生成。
+
+  </div>
+</details>  
+
+
 #### 🍚本地部署(时效性:版本问题可能与自身教程不符,如缺少config.ts等,此时应访问<a href="https://github.com/LyraVoid/Mizuki/releases" target="_blank" rel="noopener noreferrer">Mizuki/releases</a>,只下载Mizuki.zip文件)
 
 - 克隆项目(两种方法,注意复制粘贴快捷键)  
