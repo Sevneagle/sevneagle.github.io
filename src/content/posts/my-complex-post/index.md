@@ -10,7 +10,7 @@ author: Sevneagle
 //sourceLink: "https://github.com/emn178/markdown"
 draft: false
 date: 2026-03-15
-image: "./cover.png"
+image: "./cover.gif"
 pubDate: 2026-03-15
 permalink: "00测试例子"
 ---

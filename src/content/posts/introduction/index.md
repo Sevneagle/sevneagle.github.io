@@ -4,13 +4,12 @@ published: 2026-03-24
 pinned: false
 description: 这篇文章中将了解的博客网站的由来以及一些简单的教程
 tags: [Introduction]
-category: Introduction
+category: Blog
 licenseName: "CC BY-NC-SA 4.0"
 author: Sevneagle
-//sourceLink: "https://github.com/emn178/markdown"
 draft: false
 date: 2026-03-15
-image: "./images/cover.gif"
+image: "./images/cover.png"
 pubDate: 2026-03-24
 permalink: "一些介绍"
 ---
@@ -201,7 +200,7 @@ pnpm dev    #启动开发服务器
 如需关闭,可按`Ctr+c`来停止,如有提示则输入`y`确认退出  
 
 ### 🦐重要提示
-如遇文件缺少config.ts等文件无法启动且无法从<a href="https://github.com/LyraVoid/Mizuki/releases" target="_blank" rel="noopener noreferrer">Mizuki/releases</a>处下载Mizuki.zip文件的情况,可直接点击<a href="https://release-assets.githubusercontent.com/github-production-release-asset/1036553277/91c1f3ff-2f27-47e3-8cee-deda5f382d8e?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-05-27T15%3A50%3A41Z&rscd=attachment%3B+filename%3DMizuki.zip&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-05-27T14%3A49%3A53Z&ske=2026-05-27T15%3A50%3A41Z&sks=b&skv=2018-11-09&sig=SFR%2Bu6UuzfbtrPdekZPqhtcnAoy9pdUPUD%2FwsQEsSLM%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc3OTg5NjQzMCwibmJmIjoxNzc5ODk0NjMwLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.myy-RYqgCA-1mVoihbftHkgsIlwWiZYgZJJbqam_vW4&response-content-disposition=attachment%3B%20filename%3DMizuki.zip&response-content-type=application%2Foctet-stream">mizuki9.0包</a>来下载,之后请解压后使用,并且需要对Mizuki进行git bash(确保你的当前muziki目录下包含许多文件,**而不是嵌套mizuki文件夹**)  
+如遇文件缺少config.ts等文件无法启动且无法从<a href="https://github.com/LyraVoid/Mizuki/releases" target="_blank" rel="noopener noreferrer">Mizuki/releases</a>处下载Mizuki.zip文件的情况,可直接点击<a href="https://release-assets.githubusercontent.com/github-production-release-asset/1036553277/91c1f3ff-2f27-47e3-8cee-deda5f382d8e?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-06-01T13%3A30%3A05Z&rscd=attachment%3B+filename%3DMizuki.zip&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-06-01T12%3A29%3A24Z&ske=2026-06-01T13%3A30%3A05Z&sks=b&skv=2018-11-09&sig=Q8dEKaBUkpCljo0UeldKOPdWnNUSt6GBturUE2iYHJE%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4MDMxODg4MSwibmJmIjoxNzgwMzE3MDgxLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.BbqALMFX4PTkKDXxgvrfUuatIByHavHfAXfxTnsvoZk&response-content-disposition=attachment%3B%20filename%3DMizuki.zip&response-content-type=application%2Foctet-stream">mizuki9.0包</a>来下载,之后请解压后使用,并且需要对Mizuki进行git bash(确保当前muziki目录包含许多文件,**而不是嵌套mizuki文件夹**有些git相关指令无法使用是因为解压的文件还部署仓库,需要先`git init`进行初始化,参考法二)  
 
 此时网站为本地静态部署，可以在D:\Blogtest\mizuki\src中的config.ts等文件修改布局。可以用记事本等文件打开进行修改，尤其推荐使用Vscode(修改请具体参考<a href="https://docs.mizuki.mysqil.com/Basic-Layout/site-config/" target="_blank" rel="noopener noreferrer">Mizuki配置</a>)  
 
