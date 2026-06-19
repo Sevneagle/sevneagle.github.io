@@ -1,14 +1,14 @@
 ---
-title: 三、线性代数Chap.1
+title: N、线性代数Chap.1
 published: 2026-04-02
 pinned: false
 description: 这篇文章开始记录我的考研线代复习
-tags: [maths]
-category: maths
+tags: [数学]
+category: 知识
 licenseName: "CC BY-NC-SA 4.0"
 author: Sevneagle
 //sourceLink: "https://github.com/emn178/markdown"
-draft: false
+draft: true
 date: 2026-04-02
 image: "./images/cover1.jpg"
 pubDate: 2026-04-02

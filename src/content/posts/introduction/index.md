@@ -3,8 +3,8 @@ title: 一、介绍
 published: 2026-03-24
 pinned: false
 description: 这篇文章中将了解的博客网站的由来以及一些简单的教程
-tags: [Introduction]
-category: Blog
+tags: [博客]
+category: 记录
 licenseName: "CC BY-NC-SA 4.0"
 author: Sevneagle
 draft: false

@@ -4,7 +4,7 @@ published: 2026-04-01
 pinned: false
 description: 这篇文章详解如何将Mizuki部署到Github Pages
 tags: [Blog]
-category: Blog
+category: 知识
 licenseName: "CC BY-NC-SA 4.0"
 author: Sevneagle
 draft: false

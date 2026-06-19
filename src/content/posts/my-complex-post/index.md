@@ -3,8 +3,8 @@ title: 零、测试文章留念
 published: 2026-03-15
 pinned: false
 description: 这是发文前最后一篇测试文章
-tags: [test,memory]
-category: 纪念,测试
+tags: [测试]
+category: 记录
 licenseName: "CC BY-NC-SA 4.0"
 author: Sevneagle
 //sourceLink: "https://github.com/emn178/markdown"
