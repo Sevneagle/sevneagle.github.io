@@ -11,7 +11,7 @@ draft: false
 date: 2026-03-15
 image: "./images/cover.png"
 pubDate: 2026-03-24
-permalink: "一些介绍"
+permalink: "01介绍"
 ---
 
 # 🦅无题  

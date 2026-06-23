@@ -11,7 +11,7 @@ draft: false
 date: 2026-06-19
 image: "./images/cover.png"
 pubDate: 2026-06-19
-permalink: "Blog部署"
+permalink: "03Kicad"
 ---
 
 正在学习中...

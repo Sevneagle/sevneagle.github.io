@@ -11,7 +11,7 @@ draft: false
 date: 2026-03-15
 image: "./images/cover.jpg"
 pubDate: 2026-04-01
-permalink: "Blog部署"
+permalink: "02Blog部署"
 ---
 
 # 前提提示

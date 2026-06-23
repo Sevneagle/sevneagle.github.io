@@ -12,7 +12,7 @@ draft: false
 date: 2026-03-15
 image: "./cover.gif"
 pubDate: 2026-03-15
-permalink: "00测试例子"
+permalink: "00测试"
 ---
 
 <video controls width="100%" poster="/videos/contents0/cover.png">
