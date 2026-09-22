@@ -33,7 +33,7 @@ import { remarkMermaid } from "./src/plugins/remark-mermaid.js";
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://patchouli.group',
+	site: 'https://patchouli.tech',
 	base: "/",
 	trailingSlash: "always",
 
