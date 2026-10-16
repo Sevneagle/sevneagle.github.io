@@ -19,3 +19,8 @@ permalink: "00测试"
   <source src="/videos/contents0/geimu.mp4" type="video/mp4">
 </video>
 
+test  
+
+<video controls width="100%" poster="/videos/contents0/cover2.png">
+  <source src="/videos/contents0/axeria.mp4" type="video/mp4">
+</video>
