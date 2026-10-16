@@ -135,7 +135,7 @@ D_1=\begin{vmatrix}
 1&1
 \end{vmatrix}
 =-1\quad
-D=-D_1\\
+D=-D_1
 $$
 当两行(两列)元素相等时,行列式为0:
 $$
@@ -331,7 +331,7 @@ a_{11}&0&\cdots&0\\
 0&a_{22}&\cdots&0\\
 \vdots&\vdots&\ddots&\vdots\\
 0&0&\cdots&a_{nn}
-\end{vmatrix}\\
+\end{vmatrix}
 =(-1)^{N(123\cdots n)}\boldsymbol{a_{11}a_{22}\cdots a_{nn}}
 $$
 逆序数 $N(123\cdots n)=0$,$(-1)^0=1$,原式=$a_{11}a_{22}\cdots a_{nn}$
@@ -355,7 +355,7 @@ a_{11}&a_{12}&\cdots&a_{1n}\\
 a_{21}&\cdots&a_{2,n-1}&0\\
 \vdots&\ddots&\vdots&\vdots\\
 a_{n1}&0&\cdots&0
-\end{vmatrix}\\
+\end{vmatrix}
 =(-1)^{N(n\cdots21)}a_{1n}a_{2,n-1}\cdots a_{n1}
 $$
 逆序数 $N(n\cdots21)=(n-1)+(n-2)\dots+1=\dfrac{n(n-1)}{2}$,原式=$(-1)^\dfrac{n(n-1)}{2}\boldsymbol{a_{1n}a_{2,n-1}\cdots a_{n1}}$
@@ -433,7 +433,7 @@ $$
   $$
   $
   D
-  \stackrel{按第三行展开}{=\!=\!=}
+  \stackrel{\text{按第三行展开}}{=\!=\!=}
   0+(-1)^{3+2}\cdot3\cdot\begin{vmatrix}3&1&-1\\1&2&2\\0&1&2\end{vmatrix}+0+0
   =-3\begin{vmatrix}3&1&-1\\1&2&2\\0&1&2\end{vmatrix}
   $
@@ -442,7 +442,7 @@ $$
   -3\begin{vmatrix}0&-5&-7\\1&2&2\\0&1&2\end{vmatrix}
   $
   $
-  \stackrel{按第一列展开}{=\!=\!=}
+  \stackrel{\text{按第一列展开}}{=\!=\!=}
   -3\cdot(-1)^{2+1}\cdot1\begin{vmatrix}-5&-7\\1&2\end{vmatrix}
   =3\cdot(-10+7)=3\cdot(-3)=-9
   $
@@ -567,8 +567,8 @@ D=\begin{vmatrix}
 2&2&2&2\\
 0&1&-1&0
 \end{vmatrix}\\
-(1)求\ 2A_{41}-3A_{42}+A_{43}+5A_{44}\\
-(2)求\ M_{11}-M_{12}+M_{13}-M_{14}
+(1)\text{求}\ 2A_{41}-3A_{42}+A_{43}+5A_{44}\\
+(2)\text{求}\ M_{11}-M_{12}+M_{13}-M_{14}
 $
 
 </div>
@@ -579,9 +579,9 @@ $
 <div style="overflow-x:auto; padding:4px 0;">
 
 $
-(1) \ 2A_{41}-3A_{42}+A_{43}+5A_{44} 等于第四行元素与自身代数余子式乘积之和，与第一行元素异乘,结果=0\\
+(1) \ 2A_{41}-3A_{42}+A_{43}+5A_{44} \text{等于第四行元素与自身代数余子式乘积之和，与第一行元素异乘,结果=0}\\
 (2) \ M_{11}-M_{12}+M_{13}-M_{14}=A_{11}+A_{12}+A_{13}+A_{14}\\
-将第一行替换为1,1,1,1，与第三行成比例结果=0
+\text{将第一行替换为}1,1,1,1\text{，与第三行成比例结果=0}
 $
 
 </div>
@@ -642,7 +642,7 @@ $
 <div style="overflow-x:auto; padding:4px 0;">
 
 $
-行列式D=\begin{vmatrix}
+\text{行列式}D=\begin{vmatrix}
 0&a&b&0\\
 a&0&0&b\\
 0&c&d&0\\
@@ -661,7 +661,7 @@ $
 <summary>点击查看解题步骤与答案</summary>
 <div style="overflow-x:auto; padding:4px 0;">
 
-选取第$1、3$行，第$2、3$列进行拉普拉斯展开：
+选取第$1\text{、}3$行，第$2\text{、}3$列进行拉普拉斯展开：
 $
 D=(-1)^{(1+3)+(2+3)}
 \begin{vmatrix}a&b\\c&d\end{vmatrix}
@@ -959,10 +959,10 @@ $D_2=\boldsymbol{(a+b+c)(b-a)(c-a)(c-b)}$
 
 $$
 \begin{pmatrix}
-中文_{11} & 中文_{12} & \cdots & 中文_{1n} \\
-中文_{21} & 中文_{22} & \cdots & 中文_{2n} \\
+\text{中文}_{11} & \text{中文}_{12} & \cdots & \text{中文}_{1n} \\
+\text{中文}_{21} & \text{中文}_{22} & \cdots & \text{中文}_{2n} \\
 \vdots & \vdots & \ddots & \vdots \\
-中文_{m1} & 中文_{m2} & \cdots & 中文_{mn}
+\text{中文}_{m1} & \text{中文}_{m2} & \cdots & \text{中文}_{mn}
 \end{pmatrix}
 \quad \text{m行n列矩阵}
 $$
@@ -976,10 +976,10 @@ $$
 
 $$
 \begin{pmatrix}
-中文_{11} & 中文_{12} & \cdots & 中文_{1n} \\
-中文_{21} & 中文_{22} & \cdots & 中文_{2n} \\
+\text{中文}_{11} & \text{中文}_{12} & \cdots & \text{中文}_{1n} \\
+\text{中文}_{21} & \text{中文}_{22} & \cdots & \text{中文}_{2n} \\
 \vdots & \vdots & \ddots & \vdots \\
-中文_{m1} & 中文_{m2} & \cdots & 中文_{mn}
+\text{中文}_{m1} & \text{中文}_{m2} & \cdots & \text{中文}_{mn}
 \end{pmatrix}
 \quad \text{m行n列矩阵}
 $$
