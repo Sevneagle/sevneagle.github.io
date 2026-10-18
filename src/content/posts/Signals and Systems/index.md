@@ -1,8 +1,8 @@
 ---
-title: 四、信号与系统 Chap.1
+title: 四、信号与系统 Chap.1–2
 published: 2026-10-17
 pinned: false
-description: 第一章：6 个知识点，能量/功率、奇偶分解、周期复指数与离散序列周期性
+description: 第一、二章合并笔记：11 个知识点、11 道例题，覆盖信号分类、奇偶分解、周期复指数、卷积和与卷积积分、LTI 系统性质与奇异函数
 tags: [信号与系统]
 category: 知识
 licenseName: "CC BY-NC-SA 4.0"
@@ -17,11 +17,12 @@ permalink: "04信号与系统"
 
 <!--前提-->
 ## 前提:文末有可直接查看的[例题](#li-ti)
-- 本文把教材（奥本海姆《信号与系统》第二版）的**第一章**与**第二章前半部分**合为一个大章来记。
-- **第一章（§1.2）** 整理成 6 个知识点、4 道例题。其中知识点 4（图 1-6、图 1-7）与知识点 5（图 1-8、图 1-9）只作概念讲解，不配例题。
-- **第二章前半部分** 整理成 2 个知识点、4 道例题（卷积和与卷积积分），对应知识点 7、8。
-- 第一章的图片是同一段内容的连续截图，因此**按组插入**：图 1-2 与图 1-3 一组、图 1-4 与图 1-5 一组，依此类推。
-- 记号：连续信号 $x(t)$、离散信号 $x[n]$；单位阶跃 $u(t)$、单位冲激 $\delta(t)$；单位脉冲响应 $h[n]$、$h(t)$。
+- 本文把教材（奥本海姆《信号与系统》第二版）的**第一章**与**第二章**合为一个大章来记，共 **11 个知识点、11 道例题**。
+- **第一章（§1.2）**：知识点 1–6、例题 1–4。其中知识点 4（图 1-6、图 1-7）与知识点 5（图 1-8、图 1-9）只作概念讲解，不配例题。
+- **第二章前半（卷积和与卷积积分）**：知识点 7–8、例题 5–8。
+- **第二章后半（系统性质与奇异函数）**：知识点 9–11、例题 9–11。
+- 图片是同一段内容的连续截图，因此**按组插入**：图 1-2 与图 1-3 一组、图 2-3 与图 2-4 一组，依此类推。
+- 记号：连续信号 $x(t)$、离散信号 $x[n]$；单位阶跃 $u(t)$、单位冲激 $\delta(t)$；单位脉冲/冲激响应 $h[n]$、$h(t)$；冲激偶 $u_1(t)=\delta'(t)$。
 
 <hr style="margin: 2rem 0; border: none; height: 2px; background: #1f1e33; border-radius: 1px;">
 
@@ -754,7 +755,317 @@ $$
 
 <hr style="margin: 2rem 0; border: none; height: 2px; background: #1f1e33; border-radius: 1px;">
 
+<!--知识点9-->
+## 九、LTI 系统的可逆性与因果性
+
+### 图 2-3　逆系统的概念
+
+![LTI 系统的可逆性（式 2.66、2.67）](./images/ch2-03-invertibility.png)
+
+- 一个 LTI 系统可逆，当且仅当它与逆系统级联后，输出等于原系统的输入（图 2.26）。
+- 设原系统冲激响应为 $h(t)$、逆系统为 $h_1(t)$，级联后的总冲激响应必须等于单位冲激：
+$$
+
+\boxed{h(t)*h_1(t)=\delta(t)}
+$$
+
+离散情形完全类似：
+
+$$
+
+h[n]*h_1[n]=\delta[n]
+$$
+
+- 也就是说，$h_1$ 就是 $h$ 在**卷积意义下的"倒数"**。
+
+### 图 2-4　因果性与卷积限
+
+![因果 LTI 系统的卷积限（式 2.77–2.81）](./images/ch2-04-causality.png)
+
+- 因果 LTI 系统的冲激响应在冲激出现之前必须为零：
+$$
+
+h[n]=0,\qquad n<0
+$$
+
+于是卷积和的求和限被截断：
+
+$$
+
+y[n]=\sum_{k=-\infty}^{n}x[k]h[n-k]
+\qquad\text{或}\qquad
+y[n]=\sum_{k=0}^{\infty}h[k]x[n-k]
+$$
+
+- 连续情形同理，$h(t)=0\ (t<0)$ 时
+$$
+
+y(t)=\int_{-\infty}^{t}x(\tau)h(t-\tau)\,d\tau=\int_{0}^{\infty}h(\tau)x(t-\tau)\,d\tau
+$$
+
+- 提醒：因果性与"初始松弛"的等价**只对线性系统成立**。例如 $y[n]=2x[n]+3$ 是因果的，但当 $x[n]=0$ 时 $y[n]=3\ne0$，并不满足初始松弛。
+
+<span id="li-9"></span>
+
+9. [返回](#li-ti)例题9（求逆系统并判断因果性）
+<div style="overflow-x:auto; padding:4px 0;">
+
+**(1)** 累加器 $h[n]=u[n]$，求逆系统的冲激响应 $h_1[n]$，验证 $h[n]*h_1[n]=\delta[n]$，并判断逆系统是否因果；  
+**(2)** 系统 $h[n]=\left(\dfrac{1}{2}\right)^{n}u[n]$，求逆系统；  
+**(3)** 系统 $h(t)=\delta(t-1)$（延迟 $1$ 个单位），求逆系统并判断其因果性。
+
+</div>
+
+<details>
+  <summary>点击查看解析与答案</summary>
+  <div style="overflow-x:auto; padding:4px 0;">
+
+**(1)** 累加器对输入"逐点求和"，它的逆应当做"差分"，取**一阶差分**
+$$
+
+h_1[n]=\delta[n]-\delta[n-1]
+$$
+
+验证：
+$$
+
+h[n]*h_1[n]=\sum_{k=-\infty}^{+\infty}u[k]\left(\delta[n-k]-\delta[n-k-1]\right)=u[n]-u[n-1]=\delta[n]
+$$
+
+又因 $h_1[n]=0\ (n<0)$，所以逆系统**因果**。
+
+**(2)** 与上题同理，取
+$$
+
+h_1[n]=\delta[n]-\dfrac{1}{2}\delta[n-1]
+$$
+
+验证：
+$$
+
+h[n]*h_1[n]=\left(\dfrac{1}{2}\right)^{n}u[n]-\dfrac{1}{2}\left(\dfrac{1}{2}\right)^{n-1}u[n-1]
+=\left(\dfrac{1}{2}\right)^{n}\left(u[n]-u[n-1]\right)
+$$
+
+$$
+
+=\left(\dfrac{1}{2}\right)^{n}\delta[n]=\delta[n]
+$$
+
+（最后一步因为 $\delta[n]$ 只在 $n=0$ 处非零，而 $\left(\frac{1}{2}\right)^{0}=1$。）
+
+**(3)** 延迟 $1$ 个单位的系统的逆应当是"超前 $1$ 个单位"：
+$$
+
+h_1(t)=\delta(t+1)
+$$
+
+验证：
+$$
+
+h(t)*h_1(t)=\delta(t-1)*\delta(t+1)=\delta\left(t-1+1\right)=\delta(t)
+$$
+
+但 $\delta(t+1)$ 在 $t=-1<0$ 处非零，**不满足 $h_1(t)=0\ (t<0)$**，所以这个逆系统**非因果**。
+
+  </div>
+</details>
+
+<hr style="margin: 2rem 0; border: none; height: 2px; background: #1f1e33; border-radius: 1px;">
+
+<!--知识点10-->
+## 十、LTI 系统的稳定性
+
+### 图 2-5 + 图 2-6　BIBO 稳定的充要条件
+
+![稳定性的推导（式 2.82–2.85）](./images/ch2-05-stability.png)
+
+![绝对可和与绝对可积（式 2.86、2.87）](./images/ch2-06-stability-cond.png)
+
+- 设输入有界 $|x[n]|<B$，由卷积和并利用"和的绝对值不超过绝对值的和"：
+$$
+
+\left|y[n]\right|=\left|\sum_{k}h[k]x[n-k]\right|
+\le\sum_{k}\left|h[k]\right|\left|x[n-k]\right|
+\le B\sum_{k}\left|h[k]\right|
+$$
+
+- 若 $h[n]$ **绝对可和**，输出就有界；反之若不满足，总能找到有界输入使输出无界。于是
+$$
+
+\boxed{\sum_{k=-\infty}^{+\infty}\left|h[k]\right|<\infty}
+$$
+
+是离散 LTI 系统稳定的**充要条件**。
+
+- 连续情形完全类似，充要条件是 $h(t)$ **绝对可积**：
+$$
+
+\boxed{\int_{-\infty}^{+\infty}\left|h(\tau)\right|d\tau<\infty}
+$$
+
+<span id="li-10"></span>
+
+10. [返回](#li-ti)例题10（用绝对可和 / 可积判断稳定性）
+<div style="overflow-x:auto; padding:4px 0;">
+
+判断下列 LTI 系统是否稳定：  
+**(1)** $h_1[n]=u[n]$　
+**(2)** $h_2[n]=a^{n}u[n]$（$|a|<1$）  
+**(3)** $h_3(t)=e^{-2t}u(t)$　
+**(4)** $h_4(t)=u(t)$　
+**(5)** $h_5[n]=\dfrac{1}{n}u[n-1]$
+
+</div>
+
+<details>
+  <summary>点击查看解析与答案</summary>
+  <div style="overflow-x:auto; padding:4px 0;">
+
+判断依据：离散看 $\sum\left|h[n]\right|$ 是否有界，连续看 $\int\left|h(t)\right|dt$ 是否有界。
+
+**(1)** $h_1[n]=u[n]$：
+$$
+
+\sum_{n=0}^{\infty}1\to\infty
+$$
+
+**不稳定**。也可用有界输入直接验证：取 $x[n]=1$（$|x|=1$ 有界），则
+$$
+
+y[n]=\sum_{k=-\infty}^{n}x[k]h[n-k]=\sum_{k=0}^{n}1=n+1\to\infty
+$$
+
+输出无界。
+
+**(2)** $h_2[n]=a^{n}u[n]$，$|a|<1$：
+$$
+
+\sum_{n=0}^{\infty}\left|a\right|^{n}=\dfrac{1}{1-\left|a\right|}<\infty
+$$
+
+**稳定**。
+
+**(3)** $h_3(t)=e^{-2t}u(t)$：
+$$
+
+\int_{0}^{\infty}e^{-2t}\,dt=\dfrac{1}{2}<\infty
+$$
+
+**稳定**。
+
+**(4)** $h_4(t)=u(t)$：
+$$
+
+\int_{0}^{\infty}1\,dt\to\infty
+$$
+
+**不稳定**。
+
+**(5)** $h_5[n]=\dfrac{1}{n}u[n-1]$：
+$$
+
+\sum_{n=1}^{\infty}\dfrac{1}{n}\to\infty\quad(\text{调和级数发散})
+$$
+
+**不稳定**。这题要特别注意：$h[n]\to 0$ 却仍然不稳定，说明"冲激响应趋于零"**不是**稳定的充分条件，必须**绝对可和**才行。
+
+  </div>
+</details>
+
+<hr style="margin: 2rem 0; border: none; height: 2px; background: #1f1e33; border-radius: 1px;">
+
+<!--知识点11-->
+## 十一、单位冲激偶与其他奇异函数
+
+### 图 2-7 + 图 2-8 + 图 2-9　冲激偶、高阶导数与高阶积分
+
+![单位冲激偶（式 2.143–2.145）](./images/ch2-07-doublet.png)
+
+![冲激偶的卷积与高阶导数（式 2.146–2.148）](./images/ch2-08-doublet-conv.png)
+
+![高阶积分与单位斜坡（式 2.154–2.160）](./images/ch2-09-singular-integral.png)
+
+- **微分器** $y(t)=\dfrac{dx(t)}{dt}$ 的冲激响应是单位冲激的导数，称为**单位冲激偶**
+$$
+
+u_1(t)=\delta'(t),\qquad
+\dfrac{dx(t)}{dt}=x(t)*u_1(t)
+$$
+
+- 同理，二阶导数对应 $u_2(t)=\delta''(t)$，而 $k$ 阶导数对应的冲激响应由 $k$ 个微分器级联得到：
+$$
+
+\dfrac{d^{k}x(t)}{dt^{k}}=x(t)*u_k(t),\qquad
+u_k(t)=\underbrace{u_1(t)*\cdots*u_1(t)}_{k\ \text{次}}
+$$
+
+- **积分器**的冲激响应是 $u(t)$。两个积分器级联即 $u(t)$ 与自身卷积：
+$$
+
+u_{-2}(t)=u(t)*u(t)=\int_{-\infty}^{t}u(\tau)\,d\tau=tu(t)
+$$
+
+这就是**单位斜坡函数**（图 2.37）。
+
+- 一般地，$k$ 重积分对应
+$$
+
+u_{-k}(t)=\underbrace{u(t)*\cdots*u(t)}_{k\ \text{次}}=\dfrac{t^{\,k-1}}{(k-1)!}u(t)
+$$
+
+- 统一起见记 $\delta(t)=u_0(t)$、$u(t)=u_{-1}(t)$。
+
+<span id="li-11"></span>
+
+11. [返回](#li-ti)例题11（冲激偶与高阶积分）
+<div style="overflow-x:auto; padding:4px 0;">
+
+**(1)** 已知 $x(t)=t^{2}$，用冲激偶的卷积特性求 $x(t)*u_1(t)$ 与 $x(t)*u_2(t)$；  
+**(2)** 计算 $\displaystyle\int_{-\infty}^{+\infty}\left(t^{2}+1\right)\delta'(t-1)\,dt$；  
+**(3)** 写出 $u_{-2}(t)$、$u_{-3}(t)$ 的表达式，并说明 $\delta$ 的高阶导数与高阶积分在"是否有定义"上的区别。
+
+</div>
+
+<details>
+  <summary>点击查看解析与答案</summary>
+  <div style="overflow-x:auto; padding:4px 0;">
+
+**(1)** 由 $\dfrac{dx(t)}{dt}=x(t)*u_1(t)$ 与 $\dfrac{d^{2}x(t)}{dt^{2}}=x(t)*u_2(t)$：
+$$
+
+x(t)*u_1(t)=\dfrac{d}{dt}\left(t^{2}\right)=2t
+\qquad
+x(t)*u_2(t)=\dfrac{d^{2}}{dt^{2}}\left(t^{2}\right)=2
+$$
+
+**(2)** 冲激偶的取样性质为 $\displaystyle\int_{-\infty}^{+\infty}f(t)\delta'(t-a)\,dt=-f'(a)$。
+取 $f(t)=t^{2}+1$，则 $f'(t)=2t$、$f'(1)=2$，故
+$$
+
+\int_{-\infty}^{+\infty}\left(t^{2}+1\right)\delta'(t-1)\,dt=-2
+$$
+
+（可以这样理解：$u_1$ 把"求值"变成了"求导并取负"，这正是冲激偶与冲激的差别。）
+
+**(3)** 由 $u_{-2}(t)=u(t)*u(t)$ 以及 $u_{-k}(t)=\dfrac{t^{k-1}}{(k-1)!}u(t)$：
+$$
+
+u_{-2}(t)=tu(t)
+\qquad
+u_{-3}(t)=\dfrac{t^{2}}{2}u(t)
+$$
+
+区别：$u_{-2}$、$u_{-3}$ 都是**普通函数**，在每个 $t$ 处都有确定的值（例如 $t=1$ 时分别为 $1$ 和 $\dfrac{1}{2}$）；
+而 $u_1=\delta'(t)$、$u_2=\delta''(t)$ 这类 $\delta(t)$ 的高阶导数**不是普通函数**，只能在积分或卷积（即运算定义）下才有意义——这正是把这一类信号称为**奇异函数**的原因。
+
+  </div>
+</details>
+
+<hr style="margin: 2rem 0; border: none; height: 2px; background: #1f1e33; border-radius: 1px;">
+
 <span id="li-ti">例题(点击下面跳转)</span>  
 
 [例1](#li-1)　[例2](#li-2)　[例3](#li-3)　[例4](#li-4)  
-[例5](#li-5)　[例6](#li-6)　[例7](#li-7)　[例8](#li-8)
+[例5](#li-5)　[例6](#li-6)　[例7](#li-7)　[例8](#li-8)  
+[例9](#li-9)　[例10](#li-10)　[例11](#li-11)
