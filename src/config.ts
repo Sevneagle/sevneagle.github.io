@@ -234,9 +234,10 @@ export const siteConfig: SiteConfig = {
 		cjkFont: {
 			// 中日韩字体 - 作为回退字体
 			fontFamily: "萝莉体 第二版",
-			fontWeight: "500",
+			fontWeight: "400",
 			localFonts: ["loli.ttf"],
 			enableCompress: true, // 启用字体子集优化，减少字体文件大小
+			
 		},
 	},
 	showLastModified: true, // 控制"上次编辑"卡片显示的开关
