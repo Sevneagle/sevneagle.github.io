@@ -1118,50 +1118,106 @@ $$
 | $e^{-at}u(t),\ Re\{a\}>0$ | $\dfrac{1}{a+j\omega}$ |
 | $te^{-at}u(t),\ Re\{a\}>0$ | $\dfrac{1}{(a+j\omega)^{2}}$ |
 | $\dfrac{t^{n-1}}{(n-1)!}e^{-at}u(t)$ | $\dfrac{1}{(a+j\omega)^{n}}$ |
-| 矩形脉冲（宽 $2T_1$） | $\dfrac{2\sin(\omega T_1)}{\omega}$ |
-| $\dfrac{\sin(Wt)}{\pi t}$ | 门函数（宽 $2W$） |
+| 门函数 $g_\tau(t)$（宽 $\tau$） | $\tau\,Sa\left(\dfrac{\tau\omega}{2}\right)$ |
+| $\dfrac{\Omega}{2\pi}Sa\left(\dfrac{\Omega t}{2}\right)$ | 门函数 $g_\Omega(\omega)$（宽 $\Omega$） |
 | 周期信号 $\sum a_k e^{jk\omega_0 t}$ | $2\pi\sum a_k\delta(\omega-k\omega_0)$ |
 
-### 门函数专项（重点）
+### 门函数与 $Sa$ 函数的对偶（重点）
 
-**① 门函数 → 频域（正变换）**
-
-$$
-
-x(t)=\begin{cases}1, & \left|t\right|<T_1\\[4pt]0, & \left|t\right|>T_1\end{cases}
-\quad\Longrightarrow\quad
-X(j\omega)=\int_{-T_1}^{T_1}e^{-j\omega t}dt=\dfrac{2\sin\left(\omega T_1\right)}{\omega}=2T_1\,Sa\left(\omega T_1\right)
-$$
-
-要点：
-
-- $\omega=0$ 处取极限 $X(j0)=2T_1$，等于脉冲的**面积**；
-- 零点在 $\omega=\dfrac{n\pi}{T_1}\ (n=\pm1,\pm2,\cdots)$；
-- 脉冲越窄（$T_1$ 小）⟹ 频谱主瓣越宽；脉冲越宽 ⟹ 频谱越集中在 $\omega=0$ 附近。
-
-**② 频域门函数 → 时域（反变换）**
+**① 时域门函数 → 频域 $Sa$**
 
 $$
 
-X(j\omega)=\begin{cases}1, & \left|\omega\right|<W\\[4pt]0, & \left|\omega\right|>W\end{cases}
-\quad\Longrightarrow\quad
-x(t)=\dfrac{1}{2\pi}\int_{-W}^{W}e^{j\omega t}d\omega=\dfrac{\sin(Wt)}{\pi t}=\dfrac{W}{\pi}Sa(Wt)
+g_\tau(t)=
+\begin{cases}
+1, & \left|t\right|<\dfrac{\tau}{2}\\[8pt]
+0, & \left|t\right|>\dfrac{\tau}{2}
+\end{cases}
 $$
 
-要点：
+$$
 
-- $t=0$ 处取极限 $x(0)=\dfrac{W}{\pi}$；
-- 零点在 $t=\dfrac{n\pi}{W}\ (n=\pm1,\pm2,\cdots)$；
-- 带宽 $W$ 越大 ⟹ 时域主瓣越窄，同样体现"时宽与带宽成反比"。
+G_\tau(j\omega)=\int_{-\tau/2}^{\tau/2}e^{-j\omega t}dt
+=\dfrac{e^{-j\omega\tau/2}-e^{j\omega\tau/2}}{-j\omega}
+=\dfrac{2\sin\left(\omega\tau/2\right)}{\omega}
+$$
 
-**③ 两者是对偶的一对**
+$$
+
+\boxed{g_\tau(t)\ \longleftrightarrow\ \tau\,Sa\left(\dfrac{\tau\omega}{2}\right)}
+$$
+
+- $G_\tau(j0)=\tau$，就是门函数的**面积**；
+- 零点在 $\dfrac{\tau\omega}{2}=n\pi$，即 $\omega=\dfrac{2n\pi}{\tau}$；
+- $\tau$ 越小 ⟹ 时域越窄、频域主瓣越宽。
+
+**② 频域门函数 → 时域 $Sa$**
+
+与 $g_\tau(t)$ 采用**同一记法**（参量就是门的**宽度**），宽为 $\Omega$ 的频域门函数：
+
+$$
+
+g_\Omega(\omega)=
+\begin{cases}
+1, & \left|\omega\right|<\dfrac{\Omega}{2}\\[8pt]
+0, & \left|\omega\right|>\dfrac{\Omega}{2}
+\end{cases}
+$$
+
+$$
+
+x(t)=\dfrac{1}{2\pi}\int_{-\Omega/2}^{\Omega/2}e^{j\omega t}d\omega
+=\dfrac{1}{2\pi}\cdot\dfrac{e^{j\Omega t/2}-e^{-j\Omega t/2}}{jt}
+=\dfrac{1}{2\pi}\cdot\dfrac{2j\sin\left(\Omega t/2\right)}{jt}
+=\dfrac{\sin\left(\Omega t/2\right)}{\pi t}
+$$
+
+再由 $\sin\left(\dfrac{\Omega t}{2}\right)=\dfrac{\Omega t}{2}\,Sa\left(\dfrac{\Omega t}{2}\right)$ 整理：
+
+$$
+
+\boxed{g_\Omega(\omega)\ \longleftrightarrow\ \dfrac{\Omega}{2\pi}\,Sa\left(\dfrac{\Omega t}{2}\right)}
+$$
+
+- $x(0)=\dfrac{\Omega}{2\pi}$；
+- 零点在 $\dfrac{\Omega t}{2}=n\pi$，即 $t=\dfrac{2n\pi}{\Omega}$；
+- $\Omega$ 越大 ⟹ 频域越宽、时域主瓣越窄。
+
+**③ 用对偶性互相推出**
+
+若 $x(t)\longleftrightarrow X(j\omega)$，把变量互换并取反转可得**对偶性**
+
+$$
+
+X(jt)\ \longleftrightarrow\ 2\pi\,x(-\omega)
+$$
+
+把 ① 的 $G_\tau(j\omega)=\tau Sa\left(\dfrac{\tau\omega}{2}\right)$ 代入左边：
+
+$$
+
+\tau\,Sa\left(\dfrac{\tau t}{2}\right)\ \longleftrightarrow\ 2\pi\,g_\tau(\omega)
+$$
+
+两边同除 $2\pi$，再把 $\tau$ 换成 $\Omega$：
+
+$$
+
+\dfrac{\Omega}{2\pi}\,Sa\left(\dfrac{\Omega t}{2}\right)\ \longleftrightarrow\ g_\Omega(\omega)
+$$
+
+与 ② 完全一致——**这个 $2\pi$ 就是从这里来的**。所以 ①、② 是同一条对偶关系的两个方向，记住一条即可推出另一条。
+
+**④ 对照与用法**
 
 | | 时域 | 频域 |
 | :--- | :--- | :--- |
-| 情形 ① | 门（宽 $2T_1$） | $Sa$ 形 |
-| 情形 ② | $Sa$ 形 | 门（宽 $2W$） |
+| ① 时域门 | $g_\tau(t)$，宽 $\tau$ | $\tau Sa\left(\dfrac{\tau\omega}{2}\right)$ |
+| ② 频域门 | $\dfrac{\Omega}{2\pi}Sa\left(\dfrac{\Omega t}{2}\right)$ | $g_\Omega(\omega)$，宽 $\Omega$ |
 
-记住"**门 ↔ $Sa$**"这一对，并注意**换向时要把 $2\pi$ 的因子带上**（正变换前面是 $1$，反变换前面是 $\dfrac{1}{2\pi}$），就能在两种方向之间自由换算。
+- 两式**形式对称**：都是"门（宽 $W$）↔ $W\,Sa(W\cdot\text{另一变量}/2)$"，只是门在频域时要多带一个 $\dfrac{1}{2\pi}$。
+- 记忆口诀："**门 ↔ $Sa$**"，且**宽度参数原样带走**：宽 $\tau$ 的时域门，对应的 $Sa$ 自变量是 $\dfrac{\tau\omega}{2}$；宽 $\Omega$ 的频域门，对应的 $Sa$ 自变量是 $\dfrac{\Omega t}{2}$。
+- 与前文例题对应：例题 4 的矩形脉冲宽 $2T_1$，即 $g_{2T_1}(t)$，故 $X(j\omega)=2T_1Sa\left(\omega T_1\right)$；例题 5 的频域门为 $\left|\omega\right|<W$，宽 $2W$，即 $g_{2W}(\omega)$，代入 ② 得 $\dfrac{2W}{2\pi}Sa\left(Wt\right)=\dfrac{W}{\pi}Sa\left(Wt\right)$——与该例答案一致。
 
 <hr style="margin: 2rem 0; border: none; height: 2px; background: #1f1e33; border-radius: 1px;">
 
