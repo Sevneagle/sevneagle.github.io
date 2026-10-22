@@ -550,13 +550,11 @@ $$
 <!--知识点8-->
 ## 八、傅里叶变换的性质与推导
 
-### 图 4-6 + 图 4-7 + 图 4-8　性质表与常用变换对
+### 图 4-6 + 图 4-7　性质表与共轭对称性
 
 ![表 4.1　傅里叶变换性质](./images/ch4-06-ft-properties.png)
 
 ![实信号的共轭对称性质](./images/ch4-07-ft-conjugate.png)
-
-![表 4.2　常用傅里叶变换对](./images/ch4-08-ft-pairs.png)
 
 下面把最重要性质的推导写清楚（都能由定义 + 变量代换得到，值得自己推一遍）。
 
@@ -708,7 +706,7 @@ $$
 | :--- | :--- | :--- |
 | 实部 | $Re\{X(-j\omega)\}=Re\{X(j\omega)\}$ | **偶**函数 |
 | 虚部 | $Im\{X(-j\omega)\}=-Im\{X(j\omega)\}$ | **奇**函数 |
-| 模 | $\left|X(-j\omega)\right|=\left|X(j\omega)\right|$ | **偶**函数 |
+| 模 | $\left\vert X(-j\omega)\right\vert =\left\vert X(j\omega)\right\vert $ | **偶**函数 |
 | 辐角 | $\angle X(-j\omega)=-\angle X(j\omega)$ | **奇**函数 |
 
 直观解释：实信号的频谱"正频率部分"和"负频率部分"互为共轭镜像，所以**幅度谱一定关于 $\omega=0$ 对称**（这一点很重要，画频谱图时可以直接用）。
